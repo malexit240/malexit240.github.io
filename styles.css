@@ -8,7 +8,10 @@ body {
     --white: #f3f3f3;
     --black: #373339;
 
-    --container-width: 50rem;
+    --primary: #ed5643;
+    --accent: #97a0af;
+
+    --container-width: 52rem;
 
     background-color: var(--white);
     color: var(--black);
@@ -37,6 +40,59 @@ a {
     text-decoration: none;
 }
 
-li {
-    margin-bottom: 1rem;
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card {
+    display: grid;
+    place-items: center;
+
+    border: 0.1rem solid var(--black);
+    border-radius: 0.5rem;
+    box-shadow: var(--black) 0px 0.1rem 0.5rem 0.1rem,
+        var(--black) 0px 0.1rem 0.5rem 0.1rem inset;
+    width: 12rem;
+    height: 12rem;
+    flex: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.card>h2 {
+    text-align: center;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    background-color: var(--accent);
+    transform: rotate(45deg) translate(0, -120%);
+    width: 200%;
+    height: 100%;
+    transition: transform .3s;
+    z-index: -1;
+}
+
+.card:hover::after {
+    transform: rotate(45deg) translate(0, -50%);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    background-color: var(--primary);
+    transform: rotate(-135deg) translate(0, -120%);
+    opacity: 0.7;
+    width: 200%;
+    height: 100%;
+    transition: transform .3s;
+    z-index: -1;
+}
+
+.card:hover::before {
+    transform: rotate(-135deg) translate(0, -50%);
 }
